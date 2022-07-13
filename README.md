@@ -16,7 +16,7 @@ To install Kind head up to the [official guide](https://kind.sigs.k8s.io/docs/us
 brew install kind
 ```
 
-After installation is completed, create a new cluster by using the following command:
+After the installation is completed, create a new cluster by using the following command:
 
 ```sh
 kind create cluster --name=rond-example --config kind.config.yaml
