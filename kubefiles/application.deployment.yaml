@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application
+spec:
+  selector:
+    matchLabels:
+      app: application
+  template:
+    metadata:
+      labels:
+        app: application
+    spec:
+      containers:
+      - name: rond
+        image: ghcr.io/rond-authz/rond:main
+        resources:
+          limits:
+            memory: "130Mi"
+            cpu: "500m"
+        env:
+          - name: HTTP_PORT
+            value: "9876"
+          - name: TARGET_SERVICE_HOST
+            value: localhost:8080
+          - name: OPA_MODULES_DIRECTORY
+            value: /configurations/opa
+          - name: API_PERMISSIONS_FILE_PATH
+            value: /configurations/manualroutes.json
+        ports:
+        - containerPort: 9876
+        volumeMounts:
+          - mountPath: /configurations/opa
+            name: policies
+          - mountPath: /configurations
+            name: extended-oas
+      - name: application
+        image: davidebianchi/echo-service
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+      volumes:
+        - name: policies
+          configMap:
+            name: policies
+        - name: extended-oas
+          configMap:
+            name: extended-oas
+          

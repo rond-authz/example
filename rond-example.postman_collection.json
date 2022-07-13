@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "1252012c-c0ee-4b4e-8ab2-55f41ff95211",
+		"name": "Rönd Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:30000/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secret hello (rejected)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 789101",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:30000/secret-hello",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"secret-hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secret hello (allowed)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "bearer 123456",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:30000/secret-hello",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"secret-hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request filter generation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:30000/generate-request-filter",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"generate-request-filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Basic info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "bearer 123456",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:30000/basic-info",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"basic-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unknown path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30000/unknown-path",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30000",
+					"path": [
+						"unknown-path"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
