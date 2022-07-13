@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: extended-oas
+data:
+  manualroutes.json: |
+    {
+      "paths": {
+        "/hello": {
+          "get": {
+            "x-permission": {
+              "allow": "allow_all"
+            }
+          }
+        }
+      }
+    }

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: policies
+data:
+  policies.rego: |
+    package policies
+
+    allow_all {
+      true
+    }
