@@ -9,3 +9,22 @@ data:
     allow_all {
       true
     }
+
+    verify_authorization {
+      # you may use `get_header` built-in function to access the header without 
+      # name canonization or index position.
+      authorization := input.request.headers["Authorization"][0]
+      authorization == "bearer 123456"
+    }
+
+    data_filter {
+      resource := data.resources[_]
+      resource.name == "Jane"
+      resource.organization == "rönd-authz"
+    }
+
+    basic_info_parser [response] {
+      responseBody := input.response.body
+      # https://www.openpolicyagent.org/docs/latest/policy-reference/#builtin-object-jsonremove
+      response := object.filter(responseBody.request, ["path", "method"])
+    }

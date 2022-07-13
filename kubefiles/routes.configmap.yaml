@@ -12,6 +12,36 @@ data:
               "allow": "allow_all"
             }
           }
+        },
+        "/secret-hello": {
+          "get": {
+            "x-permission": {
+              "allow": "verify_authorization"
+            }
+          }
+        },
+        "/generate-request-filter": {
+          "get": {
+            "x-permission": {
+              "allow": "data_filter",
+              "resourceFilter": {
+                "rowFilter": {
+                  "enabled": true,
+                  "headerKey": "x-acl-rows"
+                }
+              }
+            }
+          }
+        },
+        "/basic-info": {
+          "get": {
+            "x-permission": {
+              "allow": "verify_authorization",
+              "responseFilter": {
+                "policy": "basic_info_parser"
+              }
+            }
+          }
         }
       }
     }
