@@ -47,13 +47,13 @@ Please note that we are creating everything in the `default` namespace so be su
 
 ## What's inside the application
 
-The application is all defined in the `kubefiles` directory and it is composed by a single `Deployment` with two containers, one is Rönd the other one is a simple [echo-service](https://github.com/davidebianchi/echo-service) that replies to any request with a body containing all the request details (headers, body, params, etc); this allows us to inspect how the request is forwarded from Rönd to the application service.
+The whole application is defined in the `kubefiles` directory and it is composed by a single `Deployment` with two containers, one is Rönd the other one is a simple [echo-service](https://github.com/davidebianchi/echo-service) that replies to any request with a body containing all the request details (headers, body, params, etc); this allows us to inspect how the request is forwarded from Rönd to the application service.
 
-If you want to read policies check out the [kubefiles/policies.configmap.yaml](./kubefiles/policies.configmap.yaml) file, if you want to see how the routes are configured check out the [kubefiles/routes.configmap.yaml](./kubefiles/routes.configmap.yaml) file instead.
+If you want to read the [Rego](https://www.openpolicyagent.org/docs/latest/#rego) policies check out the [kubefiles/policies.configmap.yaml](./kubefiles/policies.configmap.yaml) file, if you want to see how the routes are configured check out the [kubefiles/routes.configmap.yaml](./kubefiles/routes.configmap.yaml) file instead.
 
 ## Try it out
 
-The application revoles around four API each one using a specific policy to manage access
+The example revolves around four API each one using a specific policy to manage access
 
 | Endpoint                 | Policy               |
 |--------------------------|----------------------|
