@@ -2,15 +2,15 @@
 
 Welcome to the Rönd example repository, here you can find some examples on how to integrate Rönd in your Kubernetes cluster as a sidecar container.
 
-## Setup your environment
+## Set up your environment
 
 First of all, before proceeding, make sure you have access to a Kubernetes cluster, it may be a full-fledged cluster or local cluster, it doesn't matter, the only thing you have to be sure is that you can create new objects (specifically `Deployment`, `ConfigMap` and `Service`) in it and to apply them in the proper namespace (the `default` namespace is enough).
 
-For completeness we will continue the example assuming you are using a local cluster created with [Kind](https://kind.sigs.k8s.io).
+For completeness we will continue the example assuming you are using a local cluster created with [kind](https://kind.sigs.k8s.io).
 
 ### Install kind
 
-To install Kind head up to the [official guide](https://kind.sigs.k8s.io/docs/user/quick-start/#installation), there are a few commands you may have to run, for example if you have macOS you can simply run:
+To install kind head up to the [official guide](https://kind.sigs.k8s.io/docs/user/quick-start/#installation), there are a few commands you may have to run, for example if you have macOS you can simply run:
 
 ```sh
 brew install kind
