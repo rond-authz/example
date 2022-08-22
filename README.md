@@ -1,6 +1,8 @@
 # Rönd example
 
 Welcome to the Rönd example repository, here you can find some examples on how to integrate Rönd in your Kubernetes cluster as a sidecar container.
+For any questions or suggestions you can find the [discussions here](https://github.com/rond-authz/rond/discussions)
+
 
 ## Set up your environment
 
