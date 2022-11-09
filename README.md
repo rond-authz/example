@@ -148,3 +148,12 @@ If a route has not been registered Rönd will immediately reject the API invocat
 ```sh
 curl http://localhost:30000/unknown-path
 ```
+
+## Cluster clean up
+
+Assuming you've used Kind to run this example you can delete the cluster simply by run:
+
+```sh
+kind delete cluster --name=rond-example
+```
+
